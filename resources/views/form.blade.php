@@ -37,7 +37,7 @@
 </label>
 </div>
 <!--рейтинг, слева направа добавляем звезды-->
- 
+ <br>
 
  <div class="rating-area">
  
@@ -58,7 +58,14 @@
 </div>
  
 <br><br>
-<input type="submit" value="Search" style='width:300px;'>
+<input type="submit" value="Send" style='width:300px;'>
 </form>
+ <br>
+   <!-- если переменная $result содержит true -->
+    @if( isset($result))
+     <p><b>Ваш комментарий отправлен на модерацию</b></p>
+     <p>Админ панель по адресу /admin</p>
+     @endif
+  
 </body>
 </html>

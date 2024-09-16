@@ -11,7 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+         // таблица опубликованных комментариев
+         Schema::create('published', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('phone')->unique();
+            $table->string('email')->unique();
+            $table->string('message');
+            $table->integer('rating');
+            $table->timestamps();
+        });
+      
     }
 
     /**
@@ -19,6 +29,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        //  
+        Schema::dropIfExists('published');
     }
 };

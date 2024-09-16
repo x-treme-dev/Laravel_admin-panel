@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        // таблица неопубликованных комментариев
         Schema::create('unpublished', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('phone')->unique();
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('text');
+            $table->string('message');
             $table->integer('rating');
             $table->timestamps();
         });
@@ -30,5 +29,6 @@ return new class extends Migration
     public function down(): void
     {
         //
+        Schema::dropIfExists('unpublised');
     }
 };
