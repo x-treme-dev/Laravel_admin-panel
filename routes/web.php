@@ -14,7 +14,7 @@ Route::get('/', function () {
 Route::get('/form', [FormController::class, 'index']);
 Route::post('/form', [FormController::class, 'getData'])->name('form');
 
-Route::get('/admin', [AdminController::class, 'index']);
+Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 Route::post('/admin/{id}', [AdminController::class, 'writeData'])->name('admin');
  
-Route::get('/out', [OutController::class, 'index']);
+Route::get('/out', [OutController::class, 'index'])->name('out');

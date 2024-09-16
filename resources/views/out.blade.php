@@ -6,13 +6,16 @@
     <title>Out</title>
 </head>
 <body>
-  <h1>Опубликовано:</h1>
+  <h1>Publish:</h1>
 
+@if(session('success'))
+<div style='color:orange;'>{{ session('success')}}</div>
+@endif
 
 @if(!empty($published))
 @foreach($published as $item)
 <p>
-    <h2>Комментарий № {{$item->id}}</h2>
+    <h2>Comment № {{$item->id}}</h2>
 </p>
 <p>
     Name: {{$item->name}}
@@ -32,10 +35,12 @@
 <hr>
 @endforeach
 @else <p>
-    Heт данных
-    <a  href="{{ route('form') }}">заполните форму</a>
+    Not data
+    <a  href="{{ route('form') }}">Write data to form</a>
 </p>
 @endif
-<a  href="{{ route('form') }}">Вернуться к форме</a>
+<a  href="{{ route('form') }}">Return to form</a><br>
+<a  href="{{ route('admin.index', ['id' => 0]) }}">Return to admin panel</a>
+ 
 </body>
 </html>

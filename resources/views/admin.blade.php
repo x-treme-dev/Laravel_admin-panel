@@ -6,11 +6,15 @@
     <title>Adimin</title>
 </head>
 <body>
-@foreach($unpublished as $item)
- 
-<form class="form" action="/admin/{{ $item->id }}" method='post' enctype='multipart/form-data'>
+
+ <h1>Admin panel</h1>
+ @if(session('deleted'))
+<div style='color:orange;'>{{ session('deleted')}}</div>
+@endif
+
+@foreach($unpublished as $item)<form class="form" action="/admin/{{ $item->id }}" method='post' enctype='multipart/form-data'>
 @csrf
-<h2>Комментарий № {{ $item->id }}</h2>
+<h2>Comment № {{ $item->id }}</h2>
 <label for="name">Name: 
     <input type="text" name='name' id='name' value='{{$item->name}}'>
 </label>
@@ -36,10 +40,13 @@
     <input type="text" name='rating' id='name' value='{{$item->rating}}' style='width:30px;'>
 </label>
 <p>
-<input type="submit"  value="Published" style='width:300px;'>
+<button type='submit' name='action' value='publish' style='width:100px; background-color:orange;'>publish</button>
+<button type='submit' name='action' value='delete'>delete</button>
 </p>
+
 </form>
 <hr>
 @endforeach
+
 </body>
 </html>

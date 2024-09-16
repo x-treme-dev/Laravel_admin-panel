@@ -64,7 +64,7 @@
    <!-- если переменная $result содержит true -->
     @if( isset($result))
      <p><b>Ваш комментарий отправлен на модерацию</b></p>
-     <p>Админ панель по адресу /admin</p>
+     <p>Админ панель <a  href="{{ route('admin.index', ['id' => 0]) }}">/admin</a></p>
      @endif
   
 </body>
